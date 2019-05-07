@@ -1,0 +1,295 @@
+{
+    "title": "AWS Elemental MediaPackage",
+    "description": "AWS Elemental MediaPackage",
+    "docsUrl": "https://docs.aws.amazon.com/mediapackage/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/mediapackage/2017-10-12/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://mediapackage.amazonaws.com/",
+                    "http://mediapackage.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ListChannels": {
+            "main": "./lib/actions/ListChannels.js",
+            "title": "Returns a collection of Channels.",
+            "description": "Returns a collection of Channels.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListChannels.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateChannel": {
+            "main": "./lib/actions/CreateChannel.js",
+            "title": "Creates a new Channel.",
+            "description": "Creates a new Channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateChannel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteChannel": {
+            "main": "./lib/actions/DeleteChannel.js",
+            "title": "Deletes an existing Channel.",
+            "description": "Deletes an existing Channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteChannel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeChannel": {
+            "main": "./lib/actions/DescribeChannel.js",
+            "title": "Gets details about a Channel.",
+            "description": "Gets details about a Channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeChannel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateChannel": {
+            "main": "./lib/actions/UpdateChannel.js",
+            "title": "Updates an existing Channel.",
+            "description": "Updates an existing Channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateChannel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RotateChannelCredentials": {
+            "main": "./lib/actions/RotateChannelCredentials.js",
+            "title": "Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead",
+            "description": "Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RotateChannelCredentials.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RotateIngestEndpointCredentials": {
+            "main": "./lib/actions/RotateIngestEndpointCredentials.js",
+            "title": "Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.",
+            "description": "Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RotateIngestEndpointCredentials.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListOriginEndpoints": {
+            "main": "./lib/actions/ListOriginEndpoints.js",
+            "title": "Returns a collection of OriginEndpoint records.",
+            "description": "Returns a collection of OriginEndpoint records.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListOriginEndpoints.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateOriginEndpoint": {
+            "main": "./lib/actions/CreateOriginEndpoint.js",
+            "title": "Creates a new OriginEndpoint record.",
+            "description": "Creates a new OriginEndpoint record.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateOriginEndpoint.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteOriginEndpoint": {
+            "main": "./lib/actions/DeleteOriginEndpoint.js",
+            "title": "Deletes an existing OriginEndpoint.",
+            "description": "Deletes an existing OriginEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteOriginEndpoint.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeOriginEndpoint": {
+            "main": "./lib/actions/DescribeOriginEndpoint.js",
+            "title": "Gets details about an existing OriginEndpoint.",
+            "description": "Gets details about an existing OriginEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeOriginEndpoint.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateOriginEndpoint": {
+            "main": "./lib/actions/UpdateOriginEndpoint.js",
+            "title": "Updates an existing OriginEndpoint.",
+            "description": "Updates an existing OriginEndpoint.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateOriginEndpoint.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UntagResource": {
+            "main": "./lib/actions/UntagResource.js",
+            "title": "UntagResource",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UntagResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListTagsForResource": {
+            "main": "./lib/actions/ListTagsForResource.js",
+            "title": "ListTagsForResource",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListTagsForResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TagResource": {
+            "main": "./lib/actions/TagResource.js",
+            "title": "TagResource",
+            "description": "",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TagResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
